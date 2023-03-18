@@ -9,17 +9,14 @@ int main() {
   cin >> n;
   vector<int> primes;
   f[1] = true;
-  for(int i = 2; i * i <= n; i++) {
+  for(int i = 2; i <= n; i++) {
     if(!f[i]) {
+      primes.push_back(i);
       for(int j = i + i; j <= n; j += i) {
         f[j] = true;
       }
     }
   }
-  for(int i = 2; i <= n; i++) {
-    if(!f[i]) primes.push_back(i);
-  }
-  cout << primes.size() << endl;
   for(auto x: primes) {
     cout << x << ' ';
   }
